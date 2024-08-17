@@ -35,7 +35,7 @@
                     </ul>
                     <ul id="userInfo" class="flex items-center">
                         <li class="me-2"><a id="user" href="#"></a></li>
-                        <li id="cart" class="me-2 relative">
+                        <li id="cart" class="me-2">
                             <button type="button"
                                 class="relative inline-flex items-center p-3 text-sm font-medium text-center text-white  rounded-lg">
                                 <i class="fa-solid fa-cart-shopping"></i>
@@ -44,9 +44,12 @@
                                     0</span>
                             </button>
                             <div id="cartContainer"
-                                class="hidden absolute w-40 bg-gray-500 p-3 top-12 right-0 translate-x-14 translate-y-1 z-1">
+                                class="hidden absolute  bg-gray-500 p-3 top-12 right-0 translate-y-5 z-1">
                                 <ul id="cartProducts"></ul>
-                                <a class="underline" href="cartProducts.html">View all cart products</a>
+                                <span
+                                    class="text-center w-full p-1 rounded-md mt-3 bg-green-700 hover:bg-green-800 mx-auto inline-block">
+                                    <a class="underline" href="cartProducts.html">View all cart products</a>
+                                </span>
                             </div>
                         </li>
                         <li><a id="logoutBtn" href="#">logout</a></li>

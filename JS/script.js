@@ -11,9 +11,11 @@ if(userName){
     links.remove()
     user.innerHTML = userName
 
-    let cartProducts = document.getElementById('cartProducts')
-    let cartContainer = document.getElementById('cartContainer')
     let cartCount = document.getElementById('cartCount')
+    let cartProducts = document.getElementById('cartProducts')
+
+    // open and close Cart menu
+    let cartContainer = document.getElementById('cartContainer')
     let cart = document.getElementById('cart')
     cart.addEventListener('click', ()=>{
         if(cartProducts.innerHTML != ''){
@@ -74,7 +76,6 @@ function displayProducts(products){
 let addedItem = []
 if(localStorage.getItem('cartProducts')){
     addedItem = JSON.parse(localStorage.getItem('cartProducts'))
-    console.log(addedItem.length)
     cartCount.innerHTML = addedItem.length
     for(let i=0; i<addedItem.length; i++){
         cartProducts.innerHTML += `<li>${addedItem[i].title}</li>`
@@ -85,10 +86,13 @@ if(localStorage.getItem('cartProducts')){
 function addToCart(id){
         if(userName){
             let chosenItem = products.filter((item)=> item.id === id)
-            cartProducts.innerHTML += `<li>${chosenItem[0].title}</li>`
-            let cartProductsLength = document.querySelectorAll('#cartProducts li')
-            cartCount.innerHTML = cartProductsLength.length
             addedItem.push(...chosenItem)
+            let cartona = ''
+            for(let i=0; i<addedItem.length; i++){
+                cartona +=`<li>${addedItem[i].title}</li>`
+            }
+            cartProducts.innerHTML = cartona
+            cartCount.innerHTML = addedItem.length
             localStorage.setItem('cartProducts', JSON.stringify(addedItem))
         }else{
             window.location = 'login.html'
