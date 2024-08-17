@@ -71,15 +71,25 @@ function displayProducts(products){
     document.getElementById('products').innerHTML = cartona
 }
 
+let addedItem = []
+if(localStorage.getItem('cartProducts')){
+    addedItem = JSON.parse(localStorage.getItem('cartProducts'))
+    console.log(addedItem.length)
+    cartCount.innerHTML = addedItem.length
+    for(let i=0; i<addedItem.length; i++){
+        cartProducts.innerHTML += `<li>${addedItem[i].title}</li>`
+    }
+}
 
 
 function addToCart(id){
         if(userName){
-            // window.location = 'cartProducts.html'
             let chosenItem = products.filter((item)=> item.id === id)
             cartProducts.innerHTML += `<li>${chosenItem[0].title}</li>`
             let cartProductsLength = document.querySelectorAll('#cartProducts li')
             cartCount.innerHTML = cartProductsLength.length
+            addedItem.push(...chosenItem)
+            localStorage.setItem('cartProducts', JSON.stringify(addedItem))
         }else{
             window.location = 'login.html'
         }
