@@ -20,7 +20,9 @@
 </head>
 
 <body>
-    <header class="bg-gray-600">
+
+    <!-- ==================== Header Section ==================== -->
+    <header class="bg-gray-600 fixed top-0 w-full z-50">
         <div class="container mx-auto p-4">
             <div class="flex flex-row justify-between items-center  text-white">
                 <a href="index.html" class="text-lg">
@@ -31,8 +33,22 @@
                         <li class="me-2"><a href="login.html">Login</a></li>
                         <li><a href="register.html">Sign Up</a></li>
                     </ul>
-                    <ul id="userInfo" class="flex">
-                        <li class="me-2"><a href="#"></a></li>
+                    <ul id="userInfo" class="flex items-center">
+                        <li class="me-2"><a id="user" href="#"></a></li>
+                        <li id="cart" class="me-2 relative">
+                            <button type="button"
+                                class="relative inline-flex items-center p-3 text-sm font-medium text-center text-white  rounded-lg">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <span id="cartCount"
+                                    class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2 dark:border-gray-900">
+                                    0</span>
+                            </button>
+                            <div id="cartContainer"
+                                class="hidden absolute w-40 bg-gray-500 p-3 top-12 right-0 translate-x-14 translate-y-1 z-1">
+                                <ul id="cartProducts"></ul>
+                                <a class="underline" href="cartProducts.html">View all cart products</a>
+                            </div>
+                        </li>
                         <li><a id="logoutBtn" href="#">logout</a></li>
                     </ul>
                 </nav>
@@ -40,7 +56,8 @@
         </div>
     </header>
 
-    <section id="home">
+    <!-- ==================== Home Section ==================== -->
+    <section id="home" class="pt-20">
         <div class="container mx-auto p-4">
             <div id="products" class="flex flex-wrap flex-col md:flex-row">
 

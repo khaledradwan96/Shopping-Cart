@@ -1,13 +1,27 @@
 let links = document.getElementById('links')
 let userInfo = document.getElementById('userInfo')
-let user = document.querySelector('#userInfo a')
+let user = document.getElementById('user')
 let logoutBtn = document.getElementById('logoutBtn')
 
+
 let userName = localStorage.getItem('userName')
+let products = []
 
 if(userName){
     links.remove()
     user.innerHTML = userName
+
+    let cartProducts = document.getElementById('cartProducts')
+    let cartContainer = document.getElementById('cartContainer')
+    let cartCount = document.getElementById('cartCount')
+    let cart = document.getElementById('cart')
+    cart.addEventListener('click', ()=>{
+        if(cartProducts.innerHTML != ''){
+            cartContainer.classList.toggle('hidden')
+        }
+    })
+}else{
+    userInfo.remove()
 }
 
 logoutBtn.addEventListener('click', ()=>{
@@ -20,22 +34,17 @@ logoutBtn.addEventListener('click', ()=>{
 async function getProducts(){
     let response = await fetch('https://fakestoreapi.com/products')
     let data = await response.json()
-
-    console.log(data)
-
-    displayProducts(data)
-        
+    products = data
+    displayProducts(data)   
 }
-
 getProducts()
 
 
 function displayProducts(products){
-    console.log(products)
     let cartona = ''
     for(let i=0; i<products.length; i++){
         cartona += `
-                <div class="flex flex-col sm:flex-row md:flex-col w-full md:w-1/2 p-3 mb-5 justify-center items-center">
+                <div class="flex flex-col sm:flex-row md:flex-col w-full md:w-1/2 p-3 mb-5 justify-center items-center hover:translate-y-[-1rem] duration-300">
                     <div>
                         <img class="max-h-[150px]" src="${products[i].image}" alt="">
                     </div>
@@ -51,7 +60,7 @@ function displayProducts(products){
                             </span>
                         </div>
                         <div class='mt-2'>
-                            <button id="addCart" class="bg-green-700 p-2 rounded-md text-white me-5">
+                            <button onclick='addToCart(${products[i].id})' class="bg-green-700 p-2 rounded-md text-white me-5">
                                 add to cart <i class="fa-solid fa-cart-shopping"></i>
                             </button>
                             <button class="text-red-700"><i class="fa-regular fa-heart"></i></button>
@@ -62,11 +71,17 @@ function displayProducts(products){
     document.getElementById('products').innerHTML = cartona
 }
 
-function checkLogUser(){
-    if(userName){
-        window.location = 'cartProducts.html'
-    }else{
-        window.location = 'login.html'
-    }
+
+
+function addToCart(id){
+        if(userName){
+            // window.location = 'cartProducts.html'
+            let chosenItem = products.filter((item)=> item.id === id)
+            cartProducts.innerHTML += `<li>${chosenItem[0].title}</li>`
+            let cartProductsLength = document.querySelectorAll('#cartProducts li')
+            cartCount.innerHTML = cartProductsLength.length
+        }else{
+            window.location = 'login.html'
+        }
 }
 

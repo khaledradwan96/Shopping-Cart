@@ -9,7 +9,7 @@ const submitBtn = document.getElementById('submitBtn')
 submitBtn.addEventListener('click', (e)=>{
     e.preventDefault()
     // check empty inputs
-    if(userName.value === '' || userEmail.value === '' || userPassword.value === '' || userRePassword.value === ''){
+    if(userName.value === '' || userEmail.value === '' || userPassword.value === ''){
         alert('Please Fill Data')
     }else{
         localStorage.setItem('userName', userName.value)
