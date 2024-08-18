@@ -51,6 +51,6 @@ function displayProducts(products){
 
 function saveItemData(id){
     localStorage.setItem('productId', id)
-    window.location = '../cartDetails.html'
+    window.location = '../productDetails.html'
 }
 

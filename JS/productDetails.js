@@ -2,7 +2,6 @@ let productId = localStorage.getItem('productId')
 products = JSON.parse(localStorage.getItem('products'))
 
 let productDetails = products.filter((item)=> item.id == productId)
-console.log(productDetails)
 displayProduct(...productDetails)
 
 function displayProduct(product){
