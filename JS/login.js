@@ -17,14 +17,12 @@ submitBtn.addEventListener('click', (e)=>{
             getUserPassword && 
             getUserPassword.trim() == userPassword.value
         ){
+                sessionStorage.setItem('login', 'valid')
                 setTimeout(()=>{
                     window.location = 'index.html'
                 }, 1500)
         }else{
             console.log('no')
         }
-
-
-
     }
 })

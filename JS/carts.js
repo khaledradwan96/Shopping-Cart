@@ -1,15 +1,9 @@
-let user = document.getElementById('user')
-let cartCount = document.getElementById('cartCount')
-
-
-let userName = localStorage.getItem('userName')
-if(userName){
+if(login){
     user.innerHTML = userName
 }else{
     window.location = 'login.html'
 }
 
-let products = []
 
 let cartProducts = localStorage.getItem('cartProducts')
 if(cartProducts){

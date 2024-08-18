@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart | Home Page</title>
+    <title>Shopping Cart | Cart Products Page</title>
 
     <!-- ==================== Google Font ==================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,9 +29,13 @@
                     <i class="fa-solid fa-shop"></i>
                     Shopping Cart</a>
                 <nav>
+                    <ul id="links" class="flex">
+                        <li class="me-2"><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Sign Up</a></li>
+                    </ul>
                     <ul id="userInfo" class="flex items-center">
                         <li class="me-2"><a id="user" href="#"></a></li>
-                        <li id="cart" class="me-2 relative">
+                        <li id="cart" class="me-2">
                             <button type="button"
                                 class="relative inline-flex items-center p-3 text-sm font-medium text-center text-white  rounded-lg">
                                 <i class="fa-solid fa-cart-shopping"></i>
@@ -39,6 +43,14 @@
                                     class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2 dark:border-gray-900">
                                     0</span>
                             </button>
+                            <div id="cartContainer"
+                                class="hidden absolute  bg-gray-500 p-3 top-12 right-0 translate-y-5 z-1">
+                                <ul id="cartProducts"></ul>
+                                <span
+                                    class="text-center w-full p-1 rounded-md mt-3 bg-green-700 hover:bg-green-800 mx-auto inline-block">
+                                    <a class="underline" href="cartProducts.html">View all cart products</a>
+                                </span>
+                            </div>
                         </li>
                         <li><a id="logoutBtn" href="#">logout</a></li>
                     </ul>
@@ -80,6 +92,7 @@
     </section>
 
 
+    <script src="JS/script.js"></script>
     <script src="JS/carts.js"></script>
 </body>
 
