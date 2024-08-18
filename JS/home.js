@@ -35,7 +35,7 @@ function displayProducts(products){
                             </span>
                         </div>
                         <div class='mt-2'>
-                            <button onclick='addToCart(${products[i].id})' class="bg-green-700 p-2 rounded-md text-white me-5">
+                            <button onclick='addToCart(${products[i].id})' class="bg-green-700 hover:bg-green-800 p-2 rounded-md text-white me-5">
                                 add to cart <i class="fa-solid fa-cart-shopping"></i>
                             </button>
                             <button class="text-red-700"><i class="fa-regular fa-heart"></i></button>
@@ -46,33 +46,11 @@ function displayProducts(products){
     document.getElementById('products').innerHTML = cartona
 }
 
-let addedItem = []
-if(localStorage.getItem('cartProducts') && sessionStorage.getItem('login')){
-    addedItem = JSON.parse(localStorage.getItem('cartProducts'))
-    cartCount.innerHTML = addedItem.length
-    for(let i=0; i<addedItem.length; i++){
-        cartProducts.innerHTML += `<li>${addedItem[i].title}</li>`
-    }
-}
 
-function addToCart(id){
-        if(login){
-            let chosenItem = products.filter((item)=> item.id === id)
-            addedItem.push(...chosenItem)
-            let cartona = ''
-            for(let i=0; i<addedItem.length; i++){
-                cartona +=`<li>${addedItem[i].title}</li>`
-            }
-            cartProducts.innerHTML = cartona
-            cartCount.innerHTML = addedItem.length
-            localStorage.setItem('cartProducts', JSON.stringify(addedItem))
-        }else{
-            window.location = 'login.html'
-        }
-}
 
 
 function saveItemData(id){
     localStorage.setItem('productId', id)
     window.location = '../cartDetails.html'
 }
+
