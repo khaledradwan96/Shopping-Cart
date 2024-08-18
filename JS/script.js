@@ -40,22 +40,28 @@ if(localStorage.getItem('cartProducts') && sessionStorage.getItem('login')){
     addedItem = JSON.parse(localStorage.getItem('cartProducts'))
     cartCount.innerHTML = addedItem.length
     for(let i=0; i<addedItem.length; i++){
-        cartProducts.innerHTML += `<li>${addedItem[i].title}</li>`
+        cartProducts.innerHTML += `<li>${addedItem[i].title}  => <span>Count: ${addedItem[i].count}</span></li>`
     }
 }
 
 function addToCart(id){
     if(login){
-        let chosenItem = products.filter((item)=> item.id === id)
-        addedItem.push(...chosenItem)
-        let cartona = ''
-        for(let i=0; i<addedItem.length; i++){
-            cartona +=`<li>${addedItem[i].title}</li>`
+        let chosenItem = products.find((item)=> item.id === id)
+        let items = addedItem.find((i)=> i.id === chosenItem.id)
+        if(items){
+            chosenItem.count += 1
+        }else{
+            chosenItem.count = 1
+            addedItem.push(chosenItem)
         }
-        cartProducts.innerHTML = cartona
+        cartProducts.innerHTML = ''
+        for(let i=0; i<addedItem.length; i++){
+            cartProducts.innerHTML += `<li class="pb-10">${addedItem[i].title} => <span>Count: ${addedItem[i].count}</span></li>`
+        }
         cartCount.innerHTML = addedItem.length
         localStorage.setItem('cartProducts', JSON.stringify(addedItem))
     }else{
         window.location = 'login.html'
     }
+    console.log('clicked')
 }

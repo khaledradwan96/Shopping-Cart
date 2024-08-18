@@ -53,15 +53,13 @@ function saveItemData(id){
 }
 
 let searchInput = document.getElementById('searchInput')
-searchInput.addEventListener('keyup', (e)=>{
-    // search(e.target.value)
-    console.log(searchInput.value)
+searchInput.addEventListener('keyup', ()=>{
     search(searchInput.value)
 })
 
 function search(title){
-    let arr = products.filter((item)=> item.title === title)
-    console.log(arr)
+    let arr = products.filter((item)=> item.title.toLowerCase().indexOf(title.toLowerCase()) !== -1)
     displayProducts(arr)
 }
-// search('Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops')
+
+''.toLowerCase()

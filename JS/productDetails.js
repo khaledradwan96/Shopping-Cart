@@ -1,8 +1,8 @@
 let productId = localStorage.getItem('productId')
 products = JSON.parse(localStorage.getItem('products'))
 
-let productDetails = products.filter((item)=> item.id == productId)
-displayProduct(...productDetails)
+let productDetails = products.find((item)=> item.id == productId)
+displayProduct(productDetails)
 
 function displayProduct(product){
     let cartona = ''
