@@ -34,7 +34,7 @@ logoutBtn.addEventListener('click', ()=>{
     }, 1500)
 })
 
-
+// ========== Cart Products ==========
 let addedItem = []
 if(localStorage.getItem('cartProducts') && sessionStorage.getItem('login')){
     addedItem = JSON.parse(localStorage.getItem('cartProducts'))
@@ -63,5 +63,30 @@ function addToCart(id){
     }else{
         window.location = 'login.html'
     }
-    console.log('clicked')
+}
+
+// ========== Favorite Product ==========
+let favoriteItem = []
+if(localStorage.getItem('favoriteProducts') && sessionStorage.getItem('login')){
+    favoriteItem = JSON.parse(localStorage.getItem('favoriteProducts'))
+}
+
+function addToFavorite(id){
+    if(login){
+        let chosenItem = products.find((item)=> item.id === id)
+        let items = favoriteItem.find((i)=> i.id === chosenItem.id)
+        if(items){
+            chosenItem.liked = false
+            let index = favoriteItem.indexOf(items)
+            favoriteItem.splice(index , 1)
+        }else{
+            chosenItem.liked = true
+            favoriteItem.push(chosenItem)
+        }
+        localStorage.setItem('favoriteProducts', JSON.stringify(favoriteItem))
+        localStorage.setItem('products', JSON.stringify(products))
+        displayProducts(products)
+    }else{
+        window.location = 'login.html'
+    }
 }

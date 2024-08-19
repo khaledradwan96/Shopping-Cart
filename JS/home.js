@@ -35,10 +35,14 @@ function displayProducts(products){
                             </span>
                         </div>
                         <div class='mt-2'>
-                            <button onclick='addToCart(${products[i].id})' class="bg-green-700 hover:bg-green-800 p-2 rounded-md text-white me-5">
+                            <button onclick='addToCart(${products[i].id})' 
+                                class="bg-green-700 hover:bg-green-800 p-2 rounded-md text-white me-5">
                                 add to cart <i class="fa-solid fa-cart-shopping"></i>
                             </button>
-                            <button class="text-red-700"><i class="fa-regular fa-heart"></i></button>
+                            <button onclick='addToFavorite(${products[i].id})' 
+                                class="text-red-700">
+                                <i class="${products[i].liked ? "fa-solid" : "fa-regular"} fa-heart"></i>
+                            </button>
                         </div>
                     </div>
                 </div>`
@@ -61,5 +65,3 @@ function search(title){
     let arr = products.filter((item)=> item.title.toLowerCase().indexOf(title.toLowerCase()) !== -1)
     displayProducts(arr)
 }
-
-''.toLowerCase()
