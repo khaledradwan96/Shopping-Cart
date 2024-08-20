@@ -8,7 +8,6 @@ if(login){
 let cartProducts = localStorage.getItem('cartProducts')
 if(cartProducts){
     products = JSON.parse(cartProducts)
-    cartCount.innerHTML = products.length
     displayProducts(products)
 }
 
@@ -34,7 +33,9 @@ function displayProducts(products){
                 </td>
                 <td class="px-6 py-4">
                     <button onclick='removeFromCart(${products[i].id})'
-                        class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
+                        class="font-medium text-red-600 dark:text-red-500 hover:underline">
+                        Remove                    
+                    </button>
                 </td>
             </tr>`
         totalPrice += (products[i].price) * (products[i].count)
