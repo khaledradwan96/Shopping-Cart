@@ -56,7 +56,7 @@ function addToCart(id){
         }
         cartProducts.innerHTML = ''
         for(let i=0; i<addedItem.length; i++){
-            cartProducts.innerHTML += `<li class="pb-10">${addedItem[i].title} => <span>Count: ${addedItem[i].count}</span></li>`
+            cartProducts.innerHTML += `<li>${addedItem[i].title} => <span>Count: ${addedItem[i].count}</span></li>`
         }
         cartCount.innerHTML = addedItem.length
         localStorage.setItem('cartProducts', JSON.stringify(addedItem))

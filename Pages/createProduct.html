@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart | Favorite Products Page</title>
+    <title>Shopping Cart | Create Product</title>
 
     <!-- ==================== Google Font ==================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,6 +35,13 @@
                     </ul>
                     <ul id="userInfo" class="flex items-center">
                         <li class="me-2"><a id="user" href="#"></a></li>
+                        <li>
+                            <button>
+                                <a href="favoriteProducts.html" class="text-red-500">
+                                    <i class="fa-solid fa-heart"></i>
+                                </a>
+                            </button>
+                        </li>
                         <li id="cart" class="me-2">
                             <button type="button"
                                 class="relative inline-flex items-center p-3 text-sm font-medium text-center text-white  rounded-lg">
@@ -59,39 +66,55 @@
         </div>
     </header>
 
-    <!-- ==================== Home Section ==================== -->
+    <!-- ==================== Create Product Section ==================== -->
     <section class="pt-20">
         <div class="container mx-auto p-4">
-            <h1 class="text-xl text-center mb-3">Favorite Products <i class="fa-solid fa-heart text-red-500"></i></h1>
-            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                <table class="text-center w-full text-sm rtl:text-right text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-gray-700 capitalize bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            <th scope="col" class="px-16 py-3">
-                                <span class="sr-only">Image</span>
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Product
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Price
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Action
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody id="products">
-
-                    </tbody>
-                </table>
-            </div>
+            <h2 class="text-2xl mb-5 text-green-800 text-center font-bold">Create New Product</h2>
+            <form id="createForm">
+                <div class="flex w-full">
+                    <input class="w-2/3 p-3" type="text" id="productName" placeholder="Product Name ...">
+                    <select class="w-1/3" id="productCategory">
+                        <option value="" hidden>Select Category</option>
+                        <option value="men's clothing">men's clothing</option>
+                        <option value="women's clothing">women's clothing</option>
+                        <option value="electronics">electronics</option>
+                        <option value="jewelry">jewelry</option>
+                    </select>
+                </div>
+                <div class="w-full">
+                    <label for="productImg">Choose Product Img</label>
+                    <input class="w-full p-3" type="file" id="productImg">
+                    <label for="productDesc">Add Product Description</label>
+                    <textarea class="w-full h-20 p-3" id="productDesc" placeholder="Product Description ..."></textarea>
+                </div>
+                <div class="flex w-full justify-around items-center">
+                    <div>
+                        <input class="p-3" type="number" id="productPrice" placeholder="Product Price ...">
+                        <label for="productPrice">EGP</label>
+                    </div>
+                    <div>
+                        <input class="p-3" type="number" id="productRate" placeholder="Product Rate ...">
+                        <label for="productRate">
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                        </label>
+                    </div>
+                    <div>
+                        <input class="p-3" type="number" id="productCount" placeholder="Product Count ...">
+                        <label for="productCount">
+                        </label>
+                    </div>
+                </div>
+                <button id="CreateBtn"
+                    class="w-full mt-5 bg-green-800 hover:bg-green-600 duration-100 p-3 px-5 text-white rounded-md">
+                    Add Product
+                </button>
+            </form>
         </div>
     </section>
 
 
     <script src="../JS/script.js"></script>
-    <script src="../JS/favorites.js"></script>
+    <script src="../JS/createProduct.js"></script>
 </body>
 
 </html>
