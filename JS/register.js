@@ -17,7 +17,7 @@ submitBtn.addEventListener('click', (e)=>{
         localStorage.setItem('userPassword', userPassword.value)
         setTimeout(()=>{
             window.location = 'login.html'
-        }, 1500)
+        }, 1000)
     }
 })
 

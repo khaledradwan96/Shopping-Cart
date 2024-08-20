@@ -30,7 +30,7 @@ if(login){
 logoutBtn.addEventListener('click', ()=>{
     sessionStorage.removeItem('login')
     setTimeout(()=>{
-        window.location = 'login.html'
+        window.location = '../Pages/login.html'
     }, 1500)
 })
 
@@ -61,7 +61,7 @@ function addToCart(id){
         cartCount.innerHTML = addedItem.length
         localStorage.setItem('cartProducts', JSON.stringify(addedItem))
     }else{
-        window.location = 'login.html'
+        window.location = '../Pages/login.html'
     }
 }
 
@@ -87,6 +87,6 @@ function addToFavorite(id){
         localStorage.setItem('products', JSON.stringify(products))
         displayProducts(products)
     }else{
-        window.location = 'login.html'
+        window.location = '../Pages/login.html'
     }
 }

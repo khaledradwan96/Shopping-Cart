@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart | Cart Products Page</title>
+    <title>Shopping Cart | Cart Details Page</title>
 
     <!-- ==================== Google Font ==================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,9 +14,9 @@
         rel="stylesheet">
 
     <!-- ==================== CSS Files ==================== -->
-    <link rel="stylesheet" href="CSS/all.min.css">
-    <link rel="stylesheet" href="CSS/output.css">
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="../CSS/all.min.css">
+    <link rel="stylesheet" href="../CSS/output.css">
+    <link rel="stylesheet" href="../CSS/style.css">
 </head>
 
 <body>
@@ -25,7 +25,7 @@
     <header class="bg-gray-600 fixed top-0 w-full z-50">
         <div class="container mx-auto p-4">
             <div class="flex flex-row justify-between items-center  text-white">
-                <a href="index.html" class="text-lg">
+                <a href="../index.html" class="text-lg">
                     <i class="fa-solid fa-shop"></i>
                     Shopping Cart</a>
                 <nav>
@@ -62,40 +62,15 @@
     <!-- ==================== Home Section ==================== -->
     <section class="pt-20">
         <div class="container mx-auto p-4">
-            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                <table class="text-center w-full text-sm rtl:text-right text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-gray-700 capitalize bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            <th scope="col" class="px-16 py-3">
-                                <span class="sr-only">Image</span>
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Product
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Qty
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Price
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Action
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody id="products">
+            <div id="product" class="flex flex-col">
 
-                    </tbody>
-                </table>
             </div>
-            <h3 class="text-center text-xl mt-3">Total Price is: <span class="text-green-600" id="totalPrice"></span>
-            </h3>
         </div>
     </section>
 
 
-    <script src="JS/script.js"></script>
-    <script src="JS/carts.js"></script>
+    <script src="../JS/script.js"></script>
+    <script src="../JS/productDetails.js"></script>
 </body>
 
 </html>

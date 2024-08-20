@@ -19,10 +19,10 @@ submitBtn.addEventListener('click', (e)=>{
         ){
                 sessionStorage.setItem('login', 'valid')
                 setTimeout(()=>{
-                    window.location = 'index.html'
-                }, 1500)
+                    window.location = '../index.html'
+                }, 1000)
         }else{
-            console.log('no')
+            alert('Wrong Data')
         }
     }
 })

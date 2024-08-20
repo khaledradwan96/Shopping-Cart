@@ -53,7 +53,7 @@ function displayProducts(products){
 
 function saveItemData(id){
     localStorage.setItem('productId', id)
-    window.location = '../productDetails.html'
+    window.location = '../Pages/productDetails.html'
 }
 
 let searchInput = document.getElementById('searchInput')

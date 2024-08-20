@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart | SignUp Page</title>
+    <title>Shopping Cart | Login Page</title>
 
     <!-- ==================== Google Font ==================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,10 +14,10 @@
         rel="stylesheet">
 
     <!-- ==================== CSS Files ==================== -->
-    <link rel="stylesheet" href="CSS/all.min.css">
-    <link rel="stylesheet" href="CSS/output.css">
-    <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="CSS/register.css">
+    <link rel="stylesheet" href="../CSS/all.min.css">
+    <link rel="stylesheet" href="../CSS/output.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/login.css">
 </head>
 
 <body>
@@ -25,12 +25,12 @@
     <header class="bg-gray-600">
         <div class="container mx-auto p-4">
             <div class="flex flex-row justify-between items-center  text-white">
-                <a href="index.html" class="text-lg">
+                <a href="../index.html" class="text-lg">
                     <i class="fa-solid fa-shop"></i>
                     Shopping Cart</a>
                 <nav>
                     <ul class="flex">
-                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Sign Up</a></li>
                     </ul>
                 </nav>
             </div>
@@ -39,15 +39,8 @@
 
     <section>
         <div class="container mx-auto p-4">
-            <h2 class="text-center text-2xl font-bold text-blue-700">Register | SignUp</h2>
-            <form class="max-w-sm mx-auto" novalidate>
-                <div class="mb-5">
-                    <label for="userName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        Your name</label>
-                    <input type="text" id="userName"
-                        class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  focus:ring-blue-500  focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-                        required />
-                </div>
+            <h2 class="text-center text-2xl font-bold text-blue-700">Login</h2>
+            <form class="max-w-sm mx-auto">
                 <div class="mb-5">
                     <label for="userEmail" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
                         email</label>
@@ -65,16 +58,16 @@
                 <div class="flex justify-between items-center">
                     <button type="submit" id="submitBtn"
                         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        Register new account</button>
-                    <span>have an Account <a class="underline text-blue-700 font-bold"
-                            href="login.html">Login</a></span>
+                        LogIn</button>
+                    <span>Not have Account <a class="underline text-blue-700 font-bold"
+                            href="register.html">Register</a></span>
                 </div>
             </form>
-
         </div>
     </section>
 
-    <script src="JS/register.js"></script>
+
+    <script src="../JS/login.js"></script>
 </body>
 
 </html>

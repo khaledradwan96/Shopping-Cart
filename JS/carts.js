@@ -1,7 +1,7 @@
 if(login){
     user.innerHTML = userName
 }else{
-    window.location = 'login.html'
+    window.location = '../Pages/login.html'
 }
 
 
