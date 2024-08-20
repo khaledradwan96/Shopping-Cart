@@ -7,8 +7,8 @@ if(login){
 
 let favoriteProducts = localStorage.getItem('favoriteProducts')
 if(favoriteProducts){
-    products = JSON.parse(favoriteProducts)
-    displayProducts(products)
+    favoriteProducts = JSON.parse(favoriteProducts)
+    displayProducts(favoriteProducts)
 }
 
 function displayProducts(products){
@@ -28,7 +28,26 @@ function displayProducts(products){
                 <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
                     ${products[i].price}
                 </td>
+                <td class="px-6 py-4">
+                    <button onclick='removeFromFavorite(${products[i].id})'
+                        class="font-medium text-red-600 dark:text-red-500 hover:underline">
+                        Remove
+                    </button>
+                </td>
             </tr>`
     }
     document.getElementById('products').innerHTML = cartona
+}
+
+function removeFromFavorite(id){
+    products = JSON.parse(localStorage.getItem('products'))
+    let chosenItem = products.find((item)=> item.id === id)
+    let items = favoriteItem.find((i)=> i.id === chosenItem.id)
+    let index = favoriteItem.indexOf(items)
+    favoriteItem.splice(index , 1)
+    chosenItem.liked = false
+    localStorage.setItem('products', JSON.stringify(products))
+    localStorage.setItem('favoriteProducts', JSON.stringify(favoriteItem))
+    displayProducts(favoriteItem)
+
 }
